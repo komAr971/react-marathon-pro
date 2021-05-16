@@ -1,0 +1,24 @@
+@import '../../varibales';
+
+.root {
+  min-height: 100vh;
+  background: linear-gradient(180deg, $third 0%, $primary 100%);
+}
+
+.contentWrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contentText {
+  width: 516px;
+  height: 557px;
+}
+
+.contentParallax {
+  position: absolute;
+  width: 793px;
+  height: 680px;
+  right: 100px;
+  top: 160px;
+}

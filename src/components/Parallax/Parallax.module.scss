@@ -1,0 +1,86 @@
+// .root {
+//   position: absolute;
+//   left: 0%;
+//   right: 0%;
+//   top: 0%;
+//   bottom: -6.92%;
+// }
+
+// .smallPokeBall {
+//   position: absolute;
+//   left: 7.84%;
+//   right: 73.36%;
+//   top: 8.41%;
+//   bottom: 66.88%;
+// }
+// .cloud {
+//   position: absolute;
+//   left: 0%;
+//   right: 67.31%;
+//   top: 75.22%;
+//   bottom: 0%;
+// }
+// .clouds {
+//   position: absolute;
+//   left: 3.6%;
+//   right: 19.28%;
+//   top: 3.05%;
+//   bottom: 33.15%;
+// }
+// .cloudBig {
+//   position: absolute;
+//   left: 49.86%;
+//   right: 0%;
+//   top: 0%;
+//   bottom: 61.96%;
+// }
+// .pokeBall {
+//   position: absolute;
+//   right: 0.1%;
+//   top: 0%;
+//   bottom: 53.26%;
+// }
+// .pikachu {
+//   position: absolute;
+//   left: 0%;
+//   right: 27.11%;
+//   top: 4.44%;
+//   bottom: 0.12%;
+// }
+
+.root {
+  width: 793px;
+  height: 680px;
+  position: relative;
+  margin-right: -159px;
+}
+
+.smallPokeBall {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+}
+
+.cloud {
+  position: absolute;
+  left: 12.31%;
+  bottom: 39.22%;
+}
+
+.cloudBig {
+  position: absolute;
+  left: 49.86%;
+  top: -3%;
+}
+
+.pokeBall {
+  position: absolute;
+  top: 24.38%;
+  right: -12%;
+}
+
+.pikachu {
+  position: absolute;
+  top: 0%;
+  left: 4.11%;
+}
