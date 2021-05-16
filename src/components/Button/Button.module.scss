@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   padding: 0 20px 9px;
+  margin: 0 0 48px;
   cursor: pointer;
   outline: 0;
   font-family: Karla;
@@ -19,11 +20,22 @@
   line-height: 27px;
   text-align: center;
 
+  transition: all 0.1s;
+
   color: $dark;
+
+  &:hover {
+    box-shadow: inset 0px -11px 0px rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
+    height: 68px;
+    margin-bottom: 46px;
+  }
 
   &:active {
     box-shadow: inset 0px -6px 0px rgba(0, 0, 0, 0.18);
-    padding-bottom: 6px;
+    transform: translateY(3px);
+    height: 63px;
+    margin-bottom: 51px;
   }
 }
 
@@ -39,4 +51,12 @@
   height: 40px;
   font-size: 17px;
   line-height: 20px;
+
+  &:hover {
+    height: 42px;
+  }
+
+  &:active {
+    height: 37px;
+  }
 }

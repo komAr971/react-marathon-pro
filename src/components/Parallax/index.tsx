@@ -12,12 +12,12 @@ const Parallax = () => {
   const [screenX, setScreenX] = useState(0);
   const [screenY, setScreenY] = useState(0);
 
-  useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      setScreenX(event.clientX);
-      setScreenY(event.clientY);
-    };
+  const handleMouseMove = (event: MouseEvent) => {
+    setScreenX(event.clientX);
+    setScreenY(event.clientY);
+  };
 
+  useEffect(() => {
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => window.removeEventListener('mousemove', handleMouseMove);
