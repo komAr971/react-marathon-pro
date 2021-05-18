@@ -39,15 +39,18 @@
   }
 }
 
-.isFullWidth {
+.maxWidth {
   width: 100%;
 }
 
-.isYellow {
+.yellow {
   background: #f2cb07;
 }
+.green {
+  background: #73d677;
+}
 
-.isSmall {
+.small {
   height: 40px;
   font-size: 17px;
   line-height: 20px;

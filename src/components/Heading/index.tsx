@@ -1,27 +1,23 @@
 import React from 'react';
+import cn from 'classnames';
 
 import s from './Heading.module.scss';
 
 interface HeadingProps {
-  type: string;
+  type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
 const Heading: React.FC<HeadingProps> = ({ children, type }) => {
-  switch (type) {
-    case 'h1':
-      return <h1 className={s.h1}>{children}</h1>;
-    case 'h2':
-      return <h2 className={s.h2}>{children}</h2>;
-    case 'h3':
-      return <h3 className={s.h3}>{children}</h3>;
-    case 'h4':
-      return <h4 className={s.h4}>{children}</h4>;
-    case 'h5':
-      return <h5 className={s.h5}>{children}</h5>;
-    case 'h6':
-      return <h6 className={s.h6}>{children}</h6>;
-  }
-  return <h1 className={s.h1}>{children}</h1>;
+  const Tag = `${type}` as keyof JSX.IntrinsicElements;
+  const className = {
+    [s.h1]: type === 'h1',
+    [s.h2]: type === 'h2',
+    [s.h3]: type === 'h3',
+    [s.h4]: type === 'h4',
+    [s.h5]: type === 'h5',
+    [s.h6]: type === 'h6',
+  };
+  return <Tag className={cn(className)}>{children}</Tag>;
 };
 
 export default Heading;
