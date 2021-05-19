@@ -1,69 +1,62 @@
 @import '../../varibales';
 
 .root {
-  display: flex;
-  flex-direction: column;
-  border-radius: 8px;
+  width: 351px;
+  height: 138px;
+  box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
   background: $white;
-  position: relative;
-  cursor: pointer;
+  border-radius: 8px;
   overflow: hidden;
+  position: relative;
+  margin-bottom: 45px;
+  cursor: pointer;
+  transition: all ease-in-out 0.15s;
+
+  &:hover {
+    transform: scale(1.03);
+    transition: all ease-in-out 0s;
+  }
 }
 
-.img {
-  height: 100%;
+.infoWrap {
   position: absolute;
-  width: 66%;
-  background: #07d6f2;
-  right: 0;
+  z-index: 1;
+  width: 150px;
+  top: 6px;
+  left: 25px;
+}
+
+.titleName {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+}
+
+.statWrap {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 12px;
 }
 
-.img.water {
-  background: linear-gradient(270deg, #5bc7fa 0.15%, #35baff 100%);
-}
-.img.fire {
-  background: linear-gradient(270deg, #b33327 0.15%, #d93e30 100%);
-}
-.img.blaze {
-  background: linear-gradient(270deg, #f2cb07 0.15%, #f2b807 100%);
-}
-.img.grass {
-  background: linear-gradient(270deg, #64d368 0.15%, #64d368 70.88%);
-}
-.img.bug {
-  background: linear-gradient(270deg, #f89eae 0.15%, #f4b5c1 100%);
+.statItem {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #4b4b4b;
+  margin-right: 12px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
-.img img {
-  height: 120%;
-}
-
-.pokemonData {
-  z-index: 2;
-  width: 45%;
-  padding-top: 0.5em;
-  padding-left: 1em;
-}
-
-.pokemonData h4 {
-  margin: 0 0 0.5em;
-}
-
-.stats {
-  width: 89px;
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 13px;
-  margin-bottom: 0.5em;
-}
-.statCircle {
-  width: 38px;
+.statValue {
+  width: 36px;
   height: 36px;
   border: 3px solid $dark;
   border-radius: 50%;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,49 +64,50 @@
   font-weight: normal;
   font-size: 15px;
   line-height: 18px;
-  color: $dark;
-  margin-bottom: 6px;
-}
-.statName {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  text-align: center;
-  color: #4b4b4b;
+  color: #212121;
+  margin: 0 auto 8px;
 }
 
-.types {
+.pictureWrap {
+  width: 232px;
+  height: 100%;
+  background: linear-gradient(270deg, #b33327 0.15%, #d93e30 100%);
+  position: absolute;
+  right: 0;
   display: flex;
-  margin-bottom: 0.5em;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 80%;
+  }
 }
 
-.type {
-  margin-right: 13px;
-  border-radius: 11px;
+.label {
+  background: #f28f16;
   box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
-  color: $dark;
+  border-radius: 11px;
+  height: 15px;
+  min-width: 60px;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
   text-align: center;
-  padding: 0 10px;
+  color: #212121;
+  padding: 0 12px 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
-.type.poison,
-.type.water {
-  background: #07d6f2;
-}
-.type.grass {
-  background: #73d677;
-}
-.type.fire {
-  background: #d93e30;
-}
-.type.bug {
-  background: #f89eae;
-}
-.type.flying {
-  background: #f2cb07;
+.labelWrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
