@@ -3,20 +3,26 @@ import Heading from '../Heading';
 
 import s from './PokemonCard.module.scss';
 
-interface IPokemonStats {
-  [n: string]: number;
+interface IStats {
+  hp: number;
+  attack: number;
+  defense: number;
+  'special-attack': number;
+  'special-defense': number;
+  speed: number;
 }
 
 interface PokemonCardProps {
+  id: number;
   name: string;
-  stats: IPokemonStats;
+  stats: IStats;
   types: string[];
   img: string;
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ name, stats, types, img }) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({ id, name, stats, types, img }) => {
   return (
-    <div className={s.root}>
+    <div id={id.toString()} className={s.root}>
       <div className={s.infoWrap}>
         <Heading type="h4" className={s.titleName}>
           {name}
@@ -32,7 +38,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name, stats, types, img }) =>
           </div>
         </div>
         <div className={s.labelWrap}>
-          <span className={s.label}>{types[0]}</span>
+          {types.map((type) => (
+            <span className={s.label}>{type}</span>
+          ))}
         </div>
       </div>
       <div className={s.pictureWrap}>
