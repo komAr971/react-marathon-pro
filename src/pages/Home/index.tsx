@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigate } from 'hookrouter';
 import Header from '../../components/Header';
 import Button from '../../components/Button';
 import Layout from '../../components/Layout';
@@ -6,6 +7,7 @@ import Parallax from '../../components/Parallax';
 import Heading from '../../components/Heading';
 
 import s from './Home.module.scss';
+import { LinkEnum } from '../../routes';
 
 const HomePage = () => {
   return (
@@ -17,13 +19,7 @@ const HomePage = () => {
             <b>Find</b> all your favorite <b>Pokemon</b>
           </Heading>
           <Heading type="h3">You can know the type of Pokemon, its strengths, disadvantages and abilities</Heading>
-          <Button onClick={(event) => event} width="max">
-            See pokemons
-          </Button>
-          <Button onClick={(event) => event}>See pokemons</Button>
-          <Button onClick={(event) => event} size="small" color="yellow">
-            See pokemons
-          </Button>
+          <Button onClick={() => navigate(LinkEnum.POKEDEX)}>See pokemons</Button>
         </div>
         <div className={s.contentParallax}>
           <Parallax />

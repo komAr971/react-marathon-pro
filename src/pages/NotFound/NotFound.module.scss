@@ -1,0 +1,56 @@
+@import '../../varibales';
+
+.root {
+  background: $danger;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  position: absolute;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 700px;
+  line-height: 818px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 4px;
+
+  color: rgba(0, 0, 0, 0.5);
+
+  filter: drop-shadow(4px 4px 24px rgba(1, 17, 38, 0.2));
+}
+
+.layer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1;
+}
+
+.layer img {
+  height: 60vh;
+}
+
+.subTitle {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.subTitle span {
+  color: $white;
+}
