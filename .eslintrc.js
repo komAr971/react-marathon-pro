@@ -13,6 +13,7 @@ module.exports = {
   },
   plugins: ['prettier', 'react', '@typescript-eslint'],
   rules: {
+    'jsx-a11y/no-autofocus': 'off',
     camelcase: 'off',
     'no-shadow': 'off',
     'react/prop-types': 'off',

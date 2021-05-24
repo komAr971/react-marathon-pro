@@ -6,6 +6,7 @@ import s from './Pokedex.module.scss';
 import useData from '../../hook/getData';
 import { IPokemons, PokemonsRequest } from '../../interface/pokemons';
 import useDebounce from '../../hook/useDebounce';
+import PokeBallPng from './assets/PokeBall.png';
 
 interface IQuery {
   name?: string;
@@ -30,10 +31,6 @@ const PokedexPage = () => {
     }));
   };
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   if (isError) {
     return <div>Something wrong!</div>;
   }
@@ -44,16 +41,21 @@ const PokedexPage = () => {
         <div className={s.layout}>
           <div className={s.searchFilter}>
             <Heading type="h3">
-              {!isLoading && data && data.total} <b>Pokemons</b> for you to choose your favorite
+              {data && data.total} <b>Pokemons</b> for you to choose your favorite
             </Heading>
-            <input type="text" className={s.searchInput} value={searchValue} onChange={handleSearchChange} />
+            <input type="text" className={s.searchInput} value={searchValue} onChange={handleSearchChange} autoFocus />
           </div>
           <div className={s.pokemons}>
-            {!isLoading &&
+            {isLoading ? (
+              <div className={s.loadingBall}>
+                <img src={PokeBallPng} alt="Pokeball" />
+              </div>
+            ) : (
               data &&
               data.pokemons.map((item: PokemonsRequest) => (
                 <PokemonCard key={item.id} name={item.name} stats={item.stats} types={item.types} img={item.img} />
-              ))}
+              ))
+            )}
           </div>
         </div>
       </div>
