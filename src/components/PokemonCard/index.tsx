@@ -13,16 +13,15 @@ interface IStats {
 }
 
 interface PokemonCardProps {
-  id: number;
   name: string;
   stats: IStats;
   types: string[];
   img: string;
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ id, name, stats, types, img }) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({ name, stats, types, img }) => {
   return (
-    <div id={id.toString()} className={s.root}>
+    <div className={s.root}>
       <div className={s.infoWrap}>
         <Heading type="h4" className={s.titleName}>
           {name}
@@ -39,7 +38,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ id, name, stats, types, img }
         </div>
         <div className={s.labelWrap}>
           {types.map((type) => (
-            <span className={s.label}>{type}</span>
+            <span key={type} className={s.label}>
+              {type}
+            </span>
           ))}
         </div>
       </div>
