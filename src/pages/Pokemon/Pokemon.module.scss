@@ -1,0 +1,32 @@
+.root {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  width: 797px;
+  height: 371px;
+  background: linear-gradient(180deg, #732119 42.19%, #d93e30 100%);
+  border-radius: 16px;
+  overflow: hidden;
+
+  .logo {
+    height: 100%;
+    background: linear-gradient(270deg, #b33327 0.15%, #d93e30 100%);
+    width: 364px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .info {
+    width: 797px;
+    color: #fdfdfd;
+    text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+    padding: 1rem;
+  }
+}
