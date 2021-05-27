@@ -53,7 +53,14 @@ const PokedexPage = () => {
             ) : (
               data &&
               data.pokemons.map((item: PokemonsRequest) => (
-                <PokemonCard key={item.id} name={item.name} stats={item.stats} types={item.types} img={item.img} />
+                <PokemonCard
+                  key={item.id}
+                  name={item.name}
+                  stats={item.stats}
+                  types={item.types}
+                  img={item.img}
+                  id={item.id}
+                />
               ))
             )}
           </div>
