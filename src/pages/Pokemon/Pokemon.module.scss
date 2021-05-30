@@ -1,3 +1,5 @@
+@import '../../varibales';
+
 .root {
   height: 85vh;
   display: flex;
@@ -9,24 +11,286 @@
   display: flex;
   width: 797px;
   height: 371px;
-  background: linear-gradient(180deg, #732119 42.19%, #d93e30 100%);
   border-radius: 16px;
   overflow: hidden;
 
   .logo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
-    background: linear-gradient(270deg, #b33327 0.15%, #d93e30 100%);
-    width: 364px;
+    background: $redGradient;
+    min-width: 364px;
 
     img {
-      width: 100%;
+      width: 90%;
+    }
+
+    &.fire,
+    &.fighting,
+    &.dragon {
+      background: $redGradient;
+    }
+
+    &.ice,
+    &.water,
+    &.normal,
+    &.gosth {
+      background: $blueGradient;
+    }
+
+    &.stile,
+    &.dark,
+    &.rock,
+    &.ground {
+      background: $greyGradient;
+    }
+
+    &.grass,
+    &.bug {
+      background: $greenGradient;
+    }
+
+    &.poison,
+    &.psychic,
+    &.fairy,
+    &.ghost {
+      background: $pinkGradient;
+    }
+
+    &.electric {
+      background: $yellowGradient;
     }
   }
 
   .info {
+    display: flex;
+    flex-direction: column;
     width: 797px;
     color: #fdfdfd;
-    text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
     padding: 1rem;
+    background: linear-gradient(180deg, #732119 42.19%, #d93e30 100%);
+
+    .box {
+      background: #fdfdfd;
+      box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+      border-radius: 8px;
+      color: #000000;
+      margin-bottom: 20px;
+    }
+
+    .titleWrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .name {
+        font-family: Karla;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 42px;
+        text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+      }
+
+      .generation {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+      }
+
+      .id {
+        width: 41px;
+        height: 41px;
+        background: #f2cb07;
+        border-radius: 50%;
+
+        font-family: Karla;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 41px;
+
+        text-align: center;
+        vertical-align: middle;
+
+        color: #000000;
+      }
+    }
+
+    .abilities {
+      height: 60px;
+      width: 264px;
+      font-family: Karla;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+      padding: 10px;
+
+      h5 {
+        margin: 0;
+        font-family: Karla;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+
+    .hpAndExp {
+      height: 78px;
+      width: 401px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+
+      h5 {
+        margin: 0;
+        font-family: Karla;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+      }
+
+      .hp {
+        display: flex;
+        flex-direction: column;
+
+        .chargeLoader {
+          height: 5px;
+          width: 138px;
+          background: linear-gradient(270deg, #64d368 0.15%, #64d368 70.88%);
+          border-radius: 8px;
+        }
+      }
+
+      .exp {
+        display: flex;
+        flex-direction: column;
+
+        .chargeLoader {
+          height: 5px;
+          width: 138px;
+          background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+          border-radius: 8px;
+        }
+      }
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .statBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 82px;
+        height: 70px;
+        padding: 10px 10px;
+
+        .stat {
+          text-align: center;
+          min-height: 36px;
+          min-width: 36px;
+          line-height: 30px;
+          border: 3px solid #212121;
+          border-radius: 50%;
+          margin-bottom: 5px;
+        }
+
+        span {
+          font-family: Karla;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 14px;
+          text-align: center;
+          color: #4b4b4b;
+        }
+      }
+    }
   }
+}
+
+.label {
+  background: #f28f16;
+  box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 11px;
+  height: 15px;
+  min-width: 60px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #212121;
+  padding: 0 12px 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.fire,
+  &.fighting,
+  &.dragon {
+    background: #f76545;
+  }
+
+  &.ice,
+  &.water {
+    background: #a2cff0;
+  }
+
+  &.stile,
+  &.dark,
+  &.rock {
+    background: #a1a1a1;
+  }
+
+  &.grass,
+  &.bug {
+    background: #70a83b;
+  }
+
+  &.normal,
+  &.gosth {
+    background: #76aadb;
+  }
+
+  &.poison,
+  &.psychic,
+  &.fairy,
+  &.ghost {
+    background: #a974bc;
+  }
+
+  &.ground {
+    background: #9b897b;
+  }
+
+  &.electric {
+    background: #f7c545;
+  }
+}
+
+.labelWrap {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }

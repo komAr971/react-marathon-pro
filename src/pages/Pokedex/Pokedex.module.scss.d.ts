@@ -2,8 +2,6 @@
 // Please do not change this file!
 interface CssExports {
   layout: string;
-  loading: string;
-  loadingBall: string;
   pokemons: string;
   root: string;
   searchFilter: string;
