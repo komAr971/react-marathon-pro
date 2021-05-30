@@ -1,5 +1,5 @@
 node_modules/
 coverage/
 
-**.d.ts
+src/**/*.d.ts
 !custom.d.ts
