@@ -4,11 +4,11 @@ import cn from 'classnames';
 import s from './Heading.module.scss';
 
 interface HeadingProps {
-  type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  type?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   className?: string;
 }
 
-const Heading: React.FC<HeadingProps> = ({ children, type, className }) => {
+const Heading: React.FC<HeadingProps> = ({ children, type = 'h1', className }) => {
   const Tag = `${type}` as keyof JSX.IntrinsicElements;
   const typeClassName = {
     [s.h1]: type === 'h1',

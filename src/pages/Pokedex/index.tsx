@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { navigate } from 'hookrouter';
+
 import Heading from '../../components/Heading';
 import PokemonCard from '../../components/PokemonCard';
 
@@ -7,6 +9,7 @@ import useData from '../../hook/getData';
 import { IPokemons, PokemonsRequest } from '../../interface/pokemons';
 import useDebounce from '../../hook/useDebounce';
 import PokeBallPng from './assets/PokeBall.png';
+import { LinkEnum } from '../../routes';
 
 interface IQuery {
   name?: string;
@@ -59,7 +62,7 @@ const PokedexPage = () => {
                   stats={item.stats}
                   types={item.types}
                   img={item.img}
-                  id={item.id}
+                  onClick={() => navigate(`${LinkEnum.POKEDEX}/${item.id}`)}
                 />
               ))
             )}

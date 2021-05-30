@@ -11,11 +11,7 @@ export interface PokemonProps {
 }
 
 const Pokemon: React.FC<PokemonProps> = ({ id }) => {
-  const { data, isLoading, isError } = useData<PokemonsRequest>('getPokemon', {}, [], id);
-
-  if (isError || !data) {
-    return <div>Something wrong!</div>;
-  }
+  const { data, isLoading } = useData<PokemonsRequest>('getPokemon', { id });
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -25,10 +21,10 @@ const Pokemon: React.FC<PokemonProps> = ({ id }) => {
     <div className={s.root}>
       <div className={s.card}>
         <div className={s.logo}>
-          <img src={data.img} alt={data.name} />
+          <img src={data?.img} alt={data?.name} />
         </div>
         <div className={s.info}>
-          <Heading type="h3">{data.name}</Heading>
+          <Heading type="h3">{data?.name}</Heading>
         </div>
       </div>
     </div>
