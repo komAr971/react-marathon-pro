@@ -1,82 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Heading from '../../components/Heading';
 import PokemonCard from '../../components/PokemonCard';
 
 import s from './Pokedex.module.scss';
-import req from '../../utils/request';
+import useData from '../../hook/getData';
+import { IPokemons, PokemonsRequest } from '../../interface/pokemons';
+import useDebounce from '../../hook/useDebounce';
+import PokeBallPng from './assets/PokeBall.png';
 
-interface IStats {
-  hp: number;
-  attack: number;
-  defense: number;
-  'special-attack': number;
-  'special-defense': number;
-  speed: number;
+interface IQuery {
+  name?: string;
+  limit?: number;
 }
-
-interface IPokemons {
-  name_clean: string;
-  abilities: string[];
-  stats: IStats;
-  types: string[];
-  img: string;
-  name: string;
-  base_experience: number;
-  height: number;
-  id: number;
-  is_default: boolean;
-  order: number;
-  weight: number;
-}
-
-interface IData {
-  total: number;
-  count: number;
-  offset: number;
-  limit: number;
-  pokemons: IPokemons[];
-}
-
-const usePokemons = () => {
-  const [data, setData] = useState<IData>({
-    total: 0,
-    count: 0,
-    offset: 0,
-    limit: 0,
-    pokemons: [],
-  });
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    const getPokemons = async () => {
-      setIsLoading(true);
-      try {
-        const result = await req('getPokemons');
-
-        setData(result);
-      } catch (e) {
-        setIsError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getPokemons();
-  }, []);
-
-  return {
-    data,
-    isLoading,
-    isError,
-  };
-};
 
 const PokedexPage = () => {
-  const { data, isLoading, isError } = usePokemons();
+  const [searchValue, setSearchValue] = useState('');
+  const [query, setQuery] = useState<IQuery>({
+    limit: 12,
+  });
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const debouncedValue = useDebounce(searchValue, 500);
+
+  const { data, isLoading, isError } = useData<IPokemons>('getPokemons', query, [debouncedValue]);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+    setQuery((state: IQuery) => ({
+      ...state,
+      name: e.target.value,
+    }));
+  };
 
   if (isError) {
     return <div>Something wrong!</div>;
@@ -88,14 +41,28 @@ const PokedexPage = () => {
         <div className={s.layout}>
           <div className={s.searchFilter}>
             <Heading type="h3">
-              {data.total} <b>Pokemons</b> for you to choose your favorite
+              {data && data.total} <b>Pokemons</b> for you to choose your favorite
             </Heading>
-            <input type="text" className={s.searchInput} />
+            <input type="text" className={s.searchInput} value={searchValue} onChange={handleSearchChange} autoFocus />
           </div>
           <div className={s.pokemons}>
-            {data.pokemons.map((item) => (
-              <PokemonCard key={item.id} name={item.name} stats={item.stats} types={item.types} img={item.img} />
-            ))}
+            {isLoading ? (
+              <div className={s.loadingBall}>
+                <img src={PokeBallPng} alt="Pokeball" />
+              </div>
+            ) : (
+              data &&
+              data.pokemons.map((item: PokemonsRequest) => (
+                <PokemonCard
+                  key={item.id}
+                  name={item.name}
+                  stats={item.stats}
+                  types={item.types}
+                  img={item.img}
+                  id={item.id}
+                />
+              ))
+            )}
           </div>
         </div>
       </div>

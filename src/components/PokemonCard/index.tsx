@@ -1,7 +1,9 @@
 import React from 'react';
+import { navigate } from 'hookrouter';
 import Heading from '../Heading';
 
 import s from './PokemonCard.module.scss';
+import { LinkEnum } from '../../routes';
 
 interface IStats {
   hp: number;
@@ -17,11 +19,12 @@ interface PokemonCardProps {
   stats: IStats;
   types: string[];
   img: string;
+  id: number;
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ name, stats, types, img }) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({ name, stats, types, img, id }) => {
   return (
-    <div className={s.root}>
+    <div className={s.root} onClick={() => navigate(`${LinkEnum.POKEDEX}/${id}`)}>
       <div className={s.infoWrap}>
         <Heading type="h4" className={s.titleName}>
           {name}
