@@ -71,7 +71,7 @@
 .pictureWrap {
   width: 232px;
   height: 100%;
-  background: linear-gradient(270deg, #b33327 0.15%, #d93e30 100%);
+  background: $redGradient;
   position: absolute;
   right: 0;
   display: flex;
@@ -80,6 +80,42 @@
 
   img {
     width: 80%;
+  }
+
+  &.fire,
+  &.fighting,
+  &.dragon {
+    background: $redGradient;
+  }
+
+  &.ice,
+  &.water,
+  &.normal,
+  &.gosth {
+    background: $blueGradient;
+  }
+
+  &.stile,
+  &.dark,
+  &.rock,
+  &.ground {
+    background: $greyGradient;
+  }
+
+  &.grass,
+  &.bug {
+    background: $greenGradient;
+  }
+
+  &.poison,
+  &.psychic,
+  &.fairy,
+  &.ghost {
+    background: $pinkGradient;
+  }
+
+  &.electric {
+    background: $yellowGradient;
   }
 }
 
@@ -103,6 +139,48 @@
 
   &:last-child {
     margin-right: 0;
+  }
+
+  &.fire,
+  &.fighting,
+  &.dragon {
+    background: #f76545;
+  }
+
+  &.ice,
+  &.water {
+    background: #a2cff0;
+  }
+
+  &.stile,
+  &.dark,
+  &.rock {
+    background: #a1a1a1;
+  }
+
+  &.grass,
+  &.bug {
+    background: #70a83b;
+  }
+
+  &.normal,
+  &.gosth {
+    background: #76aadb;
+  }
+
+  &.poison,
+  &.psychic,
+  &.fairy,
+  &.ghost {
+    background: #a974bc;
+  }
+
+  &.ground {
+    background: #9b897b;
+  }
+
+  &.electric {
+    background: #f7c545;
   }
 }
 

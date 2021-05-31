@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { navigate } from 'hookrouter';
+
 import Heading from '../../components/Heading';
 import PokemonCard from '../../components/PokemonCard';
 
@@ -6,7 +8,8 @@ import s from './Pokedex.module.scss';
 import useData from '../../hook/getData';
 import { IPokemons, PokemonsRequest } from '../../interface/pokemons';
 import useDebounce from '../../hook/useDebounce';
-import PokeBallPng from './assets/PokeBall.png';
+import { LinkEnum } from '../../routes';
+import LoadingBall from '../../components/LoadingBall';
 
 interface IQuery {
   name?: string;
@@ -47,9 +50,7 @@ const PokedexPage = () => {
           </div>
           <div className={s.pokemons}>
             {isLoading ? (
-              <div className={s.loadingBall}>
-                <img src={PokeBallPng} alt="Pokeball" />
-              </div>
+              <LoadingBall />
             ) : (
               data &&
               data.pokemons.map((item: PokemonsRequest) => (
@@ -59,7 +60,7 @@ const PokedexPage = () => {
                   stats={item.stats}
                   types={item.types}
                   img={item.img}
-                  id={item.id}
+                  onClick={() => navigate(`${LinkEnum.POKEDEX}/${item.id}`)}
                 />
               ))
             )}

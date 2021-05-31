@@ -26,3 +26,15 @@ interface MyArray<T> {
 }
 const tsArr: MyArray<number> = [1, 2, 3, 4];
 tsArr.reduce((acc, item) => acc + item, 0);
+
+export const toCapitalizeFirstLetter = (str: string) => {
+  if (str.length === 0) {
+    return str;
+  }
+
+  const chars = str.split('');
+  chars[0] = chars[0].toUpperCase();
+  return chars.join('');
+};
+
+export default toCapitalizeFirstLetter;

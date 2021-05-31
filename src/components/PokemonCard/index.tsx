@@ -1,30 +1,22 @@
 import React from 'react';
-import { navigate } from 'hookrouter';
+import cn from 'classnames';
+
 import Heading from '../Heading';
+import { PokemonStats, PokemonTypes } from '../../interface/pokemons';
 
 import s from './PokemonCard.module.scss';
-import { LinkEnum } from '../../routes';
-
-interface IStats {
-  hp: number;
-  attack: number;
-  defense: number;
-  'special-attack': number;
-  'special-defense': number;
-  speed: number;
-}
 
 interface PokemonCardProps {
   name: string;
-  stats: IStats;
-  types: string[];
+  stats: PokemonStats;
+  types: PokemonTypes[];
   img: string;
-  id: number;
+  onClick: () => any;
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ name, stats, types, img, id }) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({ name, stats, types, img, onClick }) => {
   return (
-    <div className={s.root} onClick={() => navigate(`${LinkEnum.POKEDEX}/${id}`)}>
+    <div className={s.root} onClick={onClick}>
       <div className={s.infoWrap}>
         <Heading type="h4" className={s.titleName}>
           {name}
@@ -41,13 +33,13 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name, stats, types, img, id }
         </div>
         <div className={s.labelWrap}>
           {types.map((type) => (
-            <span key={type} className={s.label}>
+            <span key={type} className={cn(s.label, s[type])}>
               {type}
             </span>
           ))}
         </div>
       </div>
-      <div className={s.pictureWrap}>
+      <div className={cn(s.pictureWrap, s[types[0]])}>
         <img src={img} alt={name} />
       </div>
     </div>
